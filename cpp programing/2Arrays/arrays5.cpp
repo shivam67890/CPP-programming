@@ -1,4 +1,4 @@
-// // Count Subarray sum Equals K
+// // Count Subarray sum Equals K⭐
 // // optimal method
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -17,14 +17,14 @@
 //     return count;
 // }
 // int main(){
-//     vector<int> arr={1,2,3,-3,1,1,1,4,2,-3};
-//     int k=3;
+//     vector<int> arr={1, 3, -5, 6, -2};
+//     int k=4;
 //     int ans=count(arr,k);
 //     cout<<ans;
 //     return 0;
 // }
 
-// // find ele at pascal triangle
+// // find ele at pascal triangle⭐
 // #include<bits/stdc++.h>
 /// not correct 100%
 // using namespace std;
@@ -104,7 +104,7 @@
 //     return 0;
 // }
 
-// // // create a full  pascal triangle
+// // // create a full  pascal triangle⭐
 // #include<bits/stdc++.h>
 // using namespace std;
 // int pascal(int r,int c){
@@ -145,7 +145,7 @@
 //     return 0;
 // }
 
-// // Find the elements that appears more than N/3 times in the array
+// // Find the elements that appears more than N/3 times in the array⭐
 // #include <bits/stdc++.h>
 // using namespace std;
 // vector<int> maximum(vector<int> &arr)
@@ -210,13 +210,11 @@
 //     {
 //         if(ele1==arr[i]) cnt1++;
 //         else if(ele2==arr[i]) cnt2++;
-
 //     }
 //       if(cnt1>=k) store.push_back(ele1);
 //         if(cnt2>=k) store.push_back(ele2);
 //     sort(store.begin(),store.end());
 //     return store;
-
 // }
 // int main(){
 //     vector<int> arr = {2,1,1,3,1,2,2,6};
@@ -228,7 +226,8 @@
 //     return 0;
 // }
 
-// // 3 Sum : Find triplets that add up to a zero
+
+// // 3 Sum : Find triplets that add up to a zero⭐
 // // brute force
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -264,6 +263,7 @@
 //     }
 //     return 0;
 // }
+
 
 // // 3 Sum : Find triplets that add up to a zero
 // // better soln
@@ -303,6 +303,7 @@
 //     return 0;
 // }
 
+
 // // 3 Sum : Find triplets that add up to a zero
 // // optimal soln
 // #include <bits/stdc++.h>
@@ -313,7 +314,6 @@
 //     for (int i = 0; i < n; i++) {
 //         //remove duplicates:
 // if (i != 0 && arr[i] == arr[i - 1]) continue;
-
 //         //moving 2 pointers:
 //         int j = i + 1;
 //         int k = n - 1;
@@ -354,7 +354,8 @@
 //     return 0;
 // }
 
-// // 4 Sum | Find Quads that add up to a target value
+
+// // 4 Sum | Find Quads that add up to a target value⭐
 // //brute force
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -491,13 +492,39 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
 
-int main()
-{
-    int N = 6;
-    vector<int> array = {9, -3, 3, -1, 6, -5};
+// //Largest Subarray with 0 Sum ⭐
+// #include <bits/stdc++.h>
+// using namespace std;
 
-    return 0;
-}
+// int subarray(int n,vector<int> arr, int result){
+
+//     int sum=0;
+//     map<int,int>mpp;
+//     int maxlen=0;
+//     mpp[0]=1;
+//     // int count=0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         sum+=arr[i];
+//         if(sum==0){
+//             maxlen=i+1;
+//         }
+//         else if(mpp.find(sum)!=mpp.end()){
+//             maxlen=max(maxlen,i-mpp[sum]);
+//         }
+//         else{
+//             mpp[sum]=i;
+//         }
+//     }
+//     return maxlen;
+// }
+// int main()
+// {
+//     int n = 6;
+//     vector<int> arr = {9, -3, 3, -1, 6, -5};
+//     int result=0;
+//     int ans=subarray(n,arr,result);
+//     cout<<ans;
+//     return 0;
+// }
