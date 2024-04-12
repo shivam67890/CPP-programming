@@ -226,7 +226,6 @@
 //     return 0;
 // }
 
-
 // // 3 Sum : Find triplets that add up to a zero⭐
 // // brute force
 // #include<bits/stdc++.h>
@@ -263,7 +262,6 @@
 //     }
 //     return 0;
 // }
-
 
 // // 3 Sum : Find triplets that add up to a zero
 // // better soln
@@ -302,7 +300,6 @@
 //     }
 //     return 0;
 // }
-
 
 // // 3 Sum : Find triplets that add up to a zero
 // // optimal soln
@@ -353,7 +350,6 @@
 //     cout << "\n";
 //     return 0;
 // }
-
 
 // // 4 Sum | Find Quads that add up to a target value⭐
 // //brute force
@@ -492,7 +488,6 @@
 //     return 0;
 // }
 
-
 // //Largest Subarray with 0 Sum ⭐
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -528,3 +523,46 @@
 //     cout<<ans;
 //     return 0;
 // }
+
+// Merge Overlapping Sub-intervals ⭐
+// brute force
+#include <bits/stdc++.h>
+using namespace std;
+vector<vector<int>> mergeoverlaping(vector<vector<int>> &arr)
+{
+    sort(arr.begin(),arr.end());
+    int size =arr.size();
+    vector<vector<int>> ans;
+    int first=arr[0][0];
+    int end=arr[0][1];
+   for (int i = 1; i < size; i++)
+   {
+    if(arr[i][0]<=end){
+        end=max(end,arr[i][1]);
+    // ans.push_back({first,end});
+    }
+    else{   
+        ans.push_back({first,end});
+        first=arr[i][0];
+        end=arr[i][1];
+        // ans.push_back({first,end}); 
+        //  WE MOVE THIS ANS BOTH ABOVE ANS HERE BECAUSE WHEN WE TAKE ONLY 1 INPUT IT GIVE ERROR
+    }}
+    ans.push_back({first,end});
+    return ans;
+}
+int main()
+{
+    vector<vector<int>> arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}}; // Output: [[1,6],[8,10],[15,18]]
+    vector<vector<int>> ans = mergeoverlaping(arr);
+    for (auto it : ans)
+    {
+        for (auto ele : it)
+        {
+            cout<<ele<< " ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
