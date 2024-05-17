@@ -1,29 +1,29 @@
-// // second largest using optimal method
-// #include <iostream>
-// #include <bits/stdc++.h>
-// using namespace std;
-// int func(int size, vector<int> &arr)
-// {
-//     int largest=INT_MIN;
-//     int secondlargest=INT_MIN;
-//     int i=0;
-//     for (int i = 0; i < size; i++) {
-//         if (arr[i] > largest) {
-//             secondlargest = largest;
-//             largest = arr[i];
-//         } else if (arr[i] > secondlargest && arr[i] < largest) {
-//             secondlargest = arr[i];
-//         }
-//     }
-//     return secondlargest;
-// }
-// int main()
-// {
-//     vector<int> arr = {7, 9, 4, 1, 9};
-//     int size = arr.size();
-//     cout<<func(size, arr);
-//     return 0;
-// }
+// second largest using optimal method
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int func(int size, vector<int> &arr)
+{
+    int largest=INT_MIN;
+    int secondlargest=INT_MIN;
+    int i=0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > largest) {
+            secondlargest = largest;
+            largest = arr[i];
+        } else if (arr[i] > secondlargest && arr[i] < largest) {
+            secondlargest = arr[i];
+        }
+    }
+    return secondlargest;
+}
+int main()
+{
+    vector<int> arr = {7, 9, 4, 1, 9};
+    int size = arr.size();
+    cout<<func(size, arr);
+    return 0;
+}
 
 // // set : used to take unique numbers in array..
 // #include<bits/stdc++.h>
