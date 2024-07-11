@@ -20,7 +20,39 @@
 // }
 // int main()
 // {
-//     vector<int> arr = {1, 2, 3, 5};
+//     vector<int> arr = {1, 3, 4, 5};
+//     int n = arr.size();
+//     // cout<<n;
+//     int ans = func(arr, n);
+//     cout<<ans<<" ";
+
+//     return 0;
+// }
+
+// // finding missing number
+// #include <iostream>
+// #include <bits/stdc++.h>
+// using namespace std;
+// int func(vector<int>& arr, int n)
+// {
+//     set<int> sets;
+//     for(auto it:arr){
+//         sets.insert(it);
+//     }
+//     int k=0;
+//     for (int i = 0; i < n+1; i++)
+//     {
+
+//             if(sets.find(i) == sets.end()){
+//                 k=i;
+//                 break;
+//             }
+//     }
+//     return k;
+// }
+// int main()
+// {
+//     vector<int> arr = {0,2,3,4,5};
 //     int n = arr.size();
 //     // cout<<n;
 //     int ans = func(arr, n);
@@ -56,7 +88,7 @@
 //     return 0;
 // }
 
-// // xor method is fastest for finding missing number
+// // xor method is fastest for finding missing number ⭐⭐⭐⭐
 // #include <iostream>
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -117,14 +149,15 @@
 // using namespace std;
 // int func(int n, vector<int> &arr)
 // {
-//     int hash[n + 1] = {0};
+//     // int hash[n + 1] = {0};
+//     unordered_map<int, int> hash;
 //     for (int i = 0; i < n; i++)
 //     {
 //         hash[arr[i]]++;
 //     }
 //     for (int i = 0; i < n; i++)
 //     {
-//         if (hash[i] == 2)
+//         if (hash[arr[i]] == 1)
 //         {
 //             return arr[i];
 //         }
@@ -134,7 +167,7 @@
 // }
 // int main()
 // {
-//     vector<int> arr = {2, 2, 3, 4, 4};
+//     vector<int> arr = {2, 2,2,2,21,3,3, 3, 4, 4};
 //     int n = arr.size();
 //     int ans = func(n, arr);
 //     cout << "The number that only appear once  = " << ans;
@@ -273,9 +306,7 @@
 
 // --------------------
 
-
-
-//Two Sum : Check if a pair with given sum exists in Array
+// // Two Sum : Check if a pair with given sum exists in Array
 // #include <iostream>
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -286,9 +317,10 @@
 //     {
 //         int j = arr[i];
 //         int two = k - j;
-//         if (mpp.find(two) != mpp.end())
+//         if (mpp.find(two) != mpp.end())  //opposite
 //         {
 //             return "yes";
+//             // break;
 //         }
 //         mpp[j]=i;
 //     }
@@ -304,24 +336,28 @@
 //     return 0;
 // }
 
-
 // // Two Sum : Check if a pair with given sum exists in Array
 // // optimal method
-// #include<iostream>
-// #include<bits/stdc++.h>
+// #include <iostream>
+// #include <bits/stdc++.h>
 // using namespace std;
-// string twosum(vector<int>& arr,int k){
-//     sort(arr.begin(),arr.end());
+// string twosum(vector<int> &arr, int k)
+// {
 //     int n=arr.size();
-//     int left=0,right=n-1;
+//     sort(arr.begin(), arr.end());
+//     int left = 0, right = n-1;
 //     while (left<right)
 //     {
 //         int sum=arr[left]+arr[right];
 //         if(sum==k){
 //             return "yes";
 //         }
-//         else if(sum>k) right--;
-//         else left++; 
+//         else if(sum>k) {
+//             right--;
+//         }
+//         else {
+//             left++;
+//         }
 //     }
     
 //     return "no";
@@ -334,6 +370,3 @@
 //     cout << "The position of 2 array is: " << len << "\n";
 //     return 0;
 // }
-
-
-

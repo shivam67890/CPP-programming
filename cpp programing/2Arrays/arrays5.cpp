@@ -1,4 +1,4 @@
-// // Count Subarray sum Equals K⭐
+// // Count Subarray sum Equals K⭐⭐⭐
 // // optimal method
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -9,16 +9,16 @@
 //     int sum=0;
 //     for (int i = 0; i < arr.size(); i++)
 //     {
-//         sum+=arr[i];
-//         int remove=sum-k;
+//         sum+=arr[i];//6
+//         int remove=sum-k;//3
 //         count=count+mpp[remove];
 //         mpp[sum]++;//this ensure that map will store sum and count..
 //     }
 //     return count;
 // }
 // int main(){
-//     vector<int> arr={1, 3, -5, 6, -2};
-//     int k=4;
+//     vector<int> arr={1,2,3,4};
+//     int k=3;
 //     int ans=count(arr,k);
 //     cout<<ans;
 //     return 0;
@@ -26,7 +26,7 @@
 
 // // find ele at pascal triangle⭐
 // #include<bits/stdc++.h>
-/// not correct 100%
+// // / not correct 100%
 // using namespace std;
 // int combination2(int m){
 //     if(m==1 || m==0) return m;
@@ -104,7 +104,7 @@
 //     return 0;
 // }
 
-// // // create a full  pascal triangle⭐
+// // // create a full  pascal triangle-hard method (below one is easy)
 // #include<bits/stdc++.h>
 // using namespace std;
 // int pascal(int r,int c){
@@ -145,6 +145,51 @@
 //     return 0;
 // }
 
+// // pascal traingle ✅
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// vector<vector<int>> generate(int numRows) {
+//     vector<vector<int>> ans;
+//     for (int i = 0; i < numRows; i++) {
+//         vector<int> temp(i + 1, 1);
+// //i + 1: specifies the size of the vector; 1: used to initialize each element with 1..
+//         for (int j = 1; j < i; j++) {
+//             temp[j] = ans[i - 1][j - 1] + ans[i - 1][j];
+//         }
+//         ans.push_back(temp);
+//     }
+//     return ans;
+// }
+
+// int main() {
+//     int n;
+//     cout << "Enter the number of rows: ";
+//     cin >> n;
+
+//     vector<vector<int>> ans = generate(n);
+
+//     // Print Pascal's Triangle
+//     for (int i = 0; i < n; i++) {
+//         // Add spaces before each row to center-align the triangle
+//         cout << string(n - i - 1, ' ');
+
+//         for (int j = 0; j <= i; j++) {
+//             cout << ans[i][j] << " ";
+//         }
+
+//         cout << endl;
+//     }
+
+// for just printing a line in a pascal triangle
+//  for (int i = 0; i < n; i++)
+//  {
+//      cout << ans[n-1][i] << " ";
+//  }
+
+//     return 0;
+// }
+
 // // Find the elements that appears more than N/3 times in the array⭐
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -179,7 +224,7 @@
 //     return 0;
 // }
 
-// // Majority Elements(&gt;N/3 times) | Find the elements that appears more than N/3 times in the array
+// // only 2 no can be there && Find the elements that appears more than N/3 times in the array
 // // optimaml solution..
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -217,7 +262,7 @@
 //     return store;
 // }
 // int main(){
-//     vector<int> arr = {2,1,1,3,1,2,2,6};
+//     vector<int> arr = {1,1,1,2,2,2,3,3,3,};
 //     vector<int> ans = majorityElement(arr);
 //     cout << "The majority elements are: ";
 //     for (auto it : ans)
@@ -289,7 +334,7 @@
 //     return retur;
 // }
 // int main(){
-//     vector<int> arr={-1, 0, 1, 2, -1, -4};
+//     vector<int> arr={ 0, 1,-1, 2, -1, -4};
 //     int n=arr.size();
 //     vector<vector<int>> ans=triplet(arr,n);
 //     for(auto it:ans){
@@ -304,35 +349,37 @@
 // // 3 Sum : Find triplets that add up to a zero
 // // optimal soln
 // #include <bits/stdc++.h>
+// #include<iostream>
+// #include<vector>
 // using namespace std;
 // vector<vector<int>> triplet(int n, vector<int> &arr) {
 //     vector<vector<int>> ans;
 //     sort(arr.begin(), arr.end());
-//     for (int i = 0; i < n; i++) {
-//         //remove duplicates:
-// if (i != 0 && arr[i] == arr[i - 1]) continue;
-//         //moving 2 pointers:
-//         int j = i + 1;
-//         int k = n - 1;
-//         while (j < k) {
-//             int sum = arr[i] + arr[j] + arr[k];
-//             if (sum < 0) {
-//                 j++;
+//     for (int i = 0; i < arr.size()-2; i++)
+//     {
+//      if (i > 0 && arr[i] == arr[i-1]) continue;  // Skip duplicates for i
+//         int left=i+1;
+//         int right=arr.size()-1;
+//         while (left<right)
+//         {
+//             int sum=arr[i]+arr[left]+arr[right];
+//             if(sum==0){
+//                 ans.push_back({arr[i],arr[left],arr[right]});
+//                 left++;
+//                 right--;
+//                 while(left<right && arr[left]==arr[left-1]) left++; // we are using arr[left-1] because we already move forward
+//                 while(left<right && arr[right]==arr[right+1]) right--;
 //             }
-//             else if (sum > 0) {
-//                 k--;
+//             else if(sum<0){
+//                 left++;
 //             }
-//             else {
-//                 vector<int> temp = {arr[i], arr[j], arr[k]};
-//                 ans.push_back(temp);
-//                 j++;
-//                 k--;
-//                 //skip the duplicates:
-//                 while (j < k && arr[j] == arr[j - 1]) j++;
-//                 while (j < k && arr[k] == arr[k + 1]) k--;
+//             else{
+//                 right--;
 //             }
 //         }
+
 //     }
+
 //     return ans;
 // }
 // int main()
@@ -398,38 +445,45 @@
 
 // // 4 Sum | Find Quads that add up to a target value
 // // better approach
-// #include<bits/stdc++.h>
+// #include <bits/stdc++.h>
 // using namespace std;
-// vector<vector<int>> foursome(int n,int z,vector<int> &arr){
+// vector<vector<int>> foursome(int n, int z, vector<int> &arr)
+// {
 //     set<vector<int>> uni;
 //     for (int i = 0; i < n; i++)
 //     {
-//         for (int j = i+1; j < n; j++)
-//         {   set<long long> hashset;
-//             for (int k = j+1; k < n; k++)
-//             {  long long sum=arr[i]+arr[j];
-//                 sum+=arr[k];
-//                 int last=z-sum; //don`t mistake z with k..
-//                 if(hashset.find(last)!=hashset.end()){
-//                 vector<int> ans={arr[i],arr[j],arr[k],last};
-//                 sort(ans.begin(),ans.end());
-//                 uni.insert(ans);
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             set<long long> hashset;
+//             for (int k = j + 1; k < n; k++)
+//             {
+//                 long long sum = arr[i] + arr[j];
+//                 sum += arr[k];
+//                 int last = z - sum; // don`t mistake z with k..
+//                 if (hashset.find(last) != hashset.end())
+//                 {
+//                     vector<int> ans = {arr[i], arr[j], arr[k], last};
+//                     sort(ans.begin(), ans.end());
+//                     uni.insert(ans);
 //                 }
 //                 hashset.insert(arr[k]);
 //             }
 //         }
 //     }
-//     vector<vector<int>> retur(uni.begin(),uni.end());
+//     vector<vector<int>> retur(uni.begin(), uni.end());
 //     return retur;
 // }
-// int main(){
-//    vector<int> arr = { 4, 3, 3, 4, 4, 2, 1, 2, 1, 1};
-//     int k=9;
+// int main()
+// {
+//     vector<int> arr = {2, 2, 2, 2, 4, 4, 1, 1, 1, 1, 1};
+//     int k = 8;
 //     int n = arr.size();
-//     vector<vector<int>> ans = foursome(n,k, arr);
-//     for (auto it : ans) {
+//     vector<vector<int>> ans = foursome(n, k, arr);
+//     for (auto it : ans)
+//     {
 //         cout << "[";
-//         for (auto i : it) {
+//         for (auto i : it)
+//         {
 //             cout << i << " ";
 //         }
 //         cout << "] ";
@@ -497,7 +551,7 @@
 //     int sum=0;
 //     map<int,int>mpp;
 //     int maxlen=0;
-//     mpp[0]=1;
+//     mpp[0]=-1;
 //     // int count=0;
 //     for (int i = 0; i < n; i++)
 //     {
@@ -532,21 +586,25 @@
 // vector<vector<int>> mergeoverlaping(vector<vector<int>> &arr)
 // {
 //     sort(arr.begin(),arr.end());
+
 //     int size =arr.size();
 //     vector<vector<int>> ans;
+
 //     int first=arr[0][0];
 //     int end=arr[0][1];
+
 //    for (int i = 1; i < size; i++)
 //    {
 //     if(arr[i][0]<=end){
 //         end=max(end,arr[i][1]);
 //     // ans.push_back({first,end});
 //     }
-//     else{   
+
+//     else{
 //         ans.push_back({first,end});
 //         first=arr[i][0];
 //         end=arr[i][1];
-//         // ans.push_back({first,end}); 
+//         // ans.push_back({first,end});
 //         //  WE MOVE THIS ANS BOTH ABOVE ANS HERE BECAUSE WHEN WE TAKE ONLY 1 INPUT IT GIVE ERROR
 //     }}
 //     ans.push_back({first,end});
@@ -554,7 +612,10 @@
 // }
 // int main()
 // {
-//     vector<vector<int>> arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}}; // Output: [[1,6],[8,10],[15,18]]
+//     vector<vector<int>> arr = {{1,6},
+//                                {8, 10},
+//                                {2, 4},
+//                                {15, 18}}; // Output: [[1,6],[8,10],[15,18]]
 //     vector<vector<int>> ans = mergeoverlaping(arr);
 //     for (auto it : ans)
 //     {
@@ -568,5 +629,24 @@
 //     return 0;
 // }
 
+
+// //take input till non-integer come into picture --
+// #include <iostream>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main(){
+// vector<int> arr;
+// int num;
+// while(cin>>num){
+//     arr.push_back(num);
+// }
+// cout<<"----------------";
+// for(auto it:arr){
+//     cout<<it<<" ";
+// }
+
+// return 0;
+// }
 
 

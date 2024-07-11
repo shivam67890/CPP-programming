@@ -87,7 +87,6 @@
 //     {
 //         cout << arr[i] << " ";
 //     }
-
 //     return 0;
 // }
 
@@ -97,29 +96,31 @@
 // using namespace std;
 // int func(vector<int> &arr, int n)
 // {
-//     int hash[n + 1] = {0};
-//     for (int i = 0; i < n; i++)
-//     {
-//         hash[arr[i]]++;
-//     }
-//     for (int i = 0; i < n; i++)
-//     {
-//         if (hash[i] > n / 2)
-//         {
-//             return arr[i];
-//         }
-//     }
+    // // int hash[n + 1] = {0};
+    // unordered_map<int,int>hash;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     hash[arr[i]]++;
+    // }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (hash[arr[i]] > n / 2)
+    //     {
+    //         return arr[i];
+    //     }
+    // }
 
-//     return 0;
+    // return 0;
 // }
 // int main()
 // {
-//     vector<int> arr = {1, 2, 3, 3, 3, 3, 3, 3, 2, 3, 2, 3, 2, 2};
+//     vector<int> arr = {5,5,5,5,5,5,5,5,5,5,5 ,2, 3, 4, 2, 2, 2};
 //     int n = arr.size();
 //     int ans = func(arr, n);
 //     cout << ans;
 //     return 0;
 // }
+
 
 // // Find the Majority Element that occurs more than N/2 times
 // // using map
@@ -152,7 +153,8 @@
 //     return 0;
 // }
 
-// // Find the Majority Element that occurs more than N/2 times
+
+// // Find the Majority Element that occurs more than N/2 times🤷🤷🤷
 // // MOST OPTIMAL ..
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -197,6 +199,7 @@
 //     return 0;
 // }
 
+
 // // // Kadane’s Algorithm : Maximum Subarray Sum in an Array
 // // //very easy method (better but not best)..
 // #include <iostream>
@@ -227,7 +230,8 @@
 //     return 0;
 // }
 
-// // // Kadane’s Algorithm : Maximum Subarray Sum in an Array
+
+// // // Kadane’s Algorithm : Maximum Subarray Sum in an Array⭐⭐⭐👏👏👏
 // // faster then previous
 // #include <iostream>
 // #include <bits/stdc++.h>
@@ -256,6 +260,7 @@
 //     return 0;
 // }
 
+
 // // Stock Buy And Sell
 // // using only 1 loop
 // #include <iostream>
@@ -283,6 +288,8 @@
 //     return 0;
 // }
 
+
+
 // // Rearrange Array Elements by Sign
 // #include <iostream>
 // #include <bits/stdc++.h>
@@ -304,20 +311,21 @@
 //             ans[positive]=arr[i];
 //             positive+=2;
 //         }
-
 //     }return ans;
 // }
 // int main()
 // {
 //     vector<int> arr = {1, 2, 3, -1, -2, -3 };
+//     // vector<int> arr = {-1,2,3,-3,4,-2 };
+    
 //     vector<int> ans=Rearrange(arr);
 //     for (int i = 0; i < ans.size(); i++)
 //     {
 //         cout << ans[i] << "   ";
 //     }
-
 //     return 0;
 // }
+
 
 // // Rearrange Array Elements by Sign
 // //  variety 2
@@ -380,7 +388,7 @@
 // }
 // int main()
 // {
-//     vector<int> arr = {1, 2, 3, -1, -2, -3, 5, 6};
+//     vector<int> arr = {1, 2, 3, -1, -2, -3, 4, 5};
 //     vector<int> ans = Rearrange(arr);
 //     for (int i = 0; i < ans.size(); i++)
 //     {
@@ -389,7 +397,8 @@
 //     return 0;
 // }
 
-// // next_permutation : find next lexicographically greater permutation
+
+// // next_permutation : find next lexicographically greater permutation (greator no using same no)
 // #include<iostream>
 // #include<vector>
 // #include<algorithm>
@@ -409,52 +418,53 @@
 
 //     return 0;
 // }
+        
 
-// // next_permutation : find next lexicographically greater permutation
-// // optimal way: and also can be used in all language
-// #include <iostream>
-// #include <bits/stdc++.h>
-// using namespace std;
-// vector<int> nextGreaterPermutation(vector<int> &arr)
-// {
-//     int n = arr.size();
-//     int temp=-1;
-//     for (int i = n - 2; i >= 0; i--)
-//     {
-//         if (arr[i] < arr[i + 1]){
-//             temp = i;
-//             break;}
-//     }
-//     // If break point does not exist:
-//     if (temp == -1)
-//     {
-//         // reverse the whole array:
-//         reverse(arr.begin(), arr.end());
-//         return arr;
-//     }
+// next_permutation : find next lexicographically greater permutation
+// optimal way: and also can be used in all language
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+vector<int> nextGreaterPermutation(vector<int> &arr)
+{
+    int n = arr.size();
+    int temp=-1;
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (arr[i] < arr[i + 1]){
+            temp = i;
+            break;}
+    }
+    // If break point does not exist:
+    if (temp == -1)
+    {
+        // reverse the whole array:
+        reverse(arr.begin(), arr.end());
+        return arr;
+    }
 
-//     for (int i = n - 1; i > temp; i--)
-//     {
-//         if (arr[i] > arr[temp])
-//         {
-//             swap(arr[i], arr[temp]);
-//             break;
-//         }
-//     }
-//      // Step 3: reverse the right half:
-//      reverse(arr.begin()+temp+1,arr.end());
-//      return arr;
-// }
-// int main()
-// {
-//     vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
-//     vector<int> ans = nextGreaterPermutation(arr);
-//     cout << "The next permutation is: [";
-//     for (auto it : ans)
-//     {
-//         cout << it << " ";
-//     }
-//     cout << "]n";
-//     return 0;
-// }   
+    for (int i = n - 1; i > temp; i--)
+    {
+        if (arr[i] > arr[temp])
+        {
+            swap(arr[i], arr[temp]);
+            break;
+        }
+    }
+     // Step 3: reverse the right half:
+     reverse(arr.begin()+temp+1,arr.end());
+     return arr;
+}
+int main()
+{
+    vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
+    vector<int> ans = nextGreaterPermutation(arr);
+    cout << "The next permutation is: [";
+    for (auto it : ans)
+    {
+        cout << it << " ";
+    }
+    cout << "]n";
+    return 0;
+}   
 

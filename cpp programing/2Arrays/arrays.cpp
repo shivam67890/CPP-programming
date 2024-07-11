@@ -1,41 +1,47 @@
-// second largest using optimal method
-#include <iostream>
-#include <bits/stdc++.h>
-using namespace std;
-int func(int size, vector<int> &arr)
-{
-    int largest=INT_MIN;
-    int secondlargest=INT_MIN;
-    int i=0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] > largest) {
-            secondlargest = largest;
-            largest = arr[i];
-        } else if (arr[i] > secondlargest && arr[i] < largest) {
-            secondlargest = arr[i];
-        }
-    }
-    return secondlargest;
-}
-int main()
-{
-    vector<int> arr = {7, 9, 4, 1, 9};
-    int size = arr.size();
-    cout<<func(size, arr);
-    return 0;
-}
+// // second largest using optimal method
+// #include <iostream>
+// #include <bits/stdc++.h>
+// using namespace std;
+// int func(int size, vector<int> &arr)
+// {
+//     int largest=INT_MIN;
+//     int secondlargest=INT_MIN;
+//     int i=0;
+//     for (int i = 0; i < size; i++) {
+//         if (arr[i] > largest) {
+//             secondlargest = largest;
+//             largest = arr[i];
+//         } else if (arr[i] > secondlargest && arr[i] < largest) {
+//             secondlargest = arr[i];
+//         }
+//     }
+//     return secondlargest;
+// }
+// int main()
+// {
+//     vector<int> arr = {7, 9, 4, 1, 9};
+//     int size = arr.size();
+//     cout<<func(size, arr);
+//     return 0;
+// }
 
 // // set : used to take unique numbers in array..
 // #include<bits/stdc++.h>
 // using namespace std;
 // int main(){
-//     set<int> arr={3,4,2,6,7,1,2,6,3,1,5,9};
+//     vector<int> arr={3,4,2,6,7,1,2,6,3,1,5,9};
 //     int i=0;
+//     set<int> uni;
 //    for (auto it:arr)
 //    {
-//     cout<<it<<" ";
+//     // it*=2;
+//     uni.insert(it);
+//     // cout<<uni<<" ";
 //    }
-
+// for (auto it:uni)
+// {
+// cout<<it<<" ";
+// }
 //     return 0;
 // }
 
@@ -56,7 +62,6 @@ int main()
 // }
 // int main()
 // {
-
 //     vector<int> arr = {1, 2, 3, 4, 5};
 //     int size = arr.size();
 //     if (func(size, arr))
@@ -70,7 +75,6 @@ int main()
 //     return 0;
 // }
 
-
 // // left rotation of array
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -80,12 +84,12 @@ int main()
 //     arr[i] = arr[i + 1];
 //   }
 //   arr[n - 1] = temp; // assigned the value of variable at the last index
-//   for (int i = 0; i < n; i++) {
-//     cout << arr[i] << " ";
-//   }
 
 // }
 // int main() {
+//     cout<<"How many time u want to rotate =";
+//     int k;
+//     cin>>k;
 //   int arr[]= {1,2,3,4,5};
 //   int n=sizeof(arr)/sizeof(arr[0]);
 //   cout<<"Before left rotated array -"<<endl;
@@ -94,11 +98,17 @@ int main()
 //     cout<<arr[i]<<" ";
 //   }
 //   cout<<endl;
-//   cout<<"After left rotated array -"<<endl;
+//   cout<<"After "<<k<<" times left rotated array -"<<endl;
+//   for (int i = 0; i < k; i++)
+//   {
 //   solve(arr, n);
+// //   cout<<endl;
+//   }
+//     for (int i = 0; i < n; i++) {
+//     cout << arr[i] << " ";
+//   }
+
 // }
-
-
 
 // // left rotation of array by n number ;
 // #include <bits/stdc++.h>
@@ -140,7 +150,7 @@ int main()
 //     solve(arr, n, k);
 // }
 
-⭐
+// ⭐
 
 // Move all Zeros to the end of the array
 // time complexity - O(n^2) BUT IT SHOULD BE O(n)..
@@ -208,7 +218,7 @@ int main()
 // int main()
 // {
 //     int n = 7;
-//     int arr[] = {1, 2, 0, 4, 5, 0, 9};
+//     int arr[] = {1, 2, 0, 4, 0, 0, 9};
 //     cout << "Before removing 0 array -" << endl;
 //     for (int i = 0; i < n; i++)
 //     {
@@ -225,6 +235,53 @@ int main()
 //     return 0;
 // }
 
+
+
+// //trying new method of above code --brilliant one 
+// #include<bits/stdc++.h>
+// using namespace std;
+// void solve(int arr[],int n){
+//     int count=0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         if(arr[i]==0){
+//             count++;
+//             // arr[i]=arr[i+1];
+//         }
+//          else if (count > 0) {
+//             // Shift non-zero element to the left by the count of zeros encountered
+//             arr[i - count] = arr[i];
+//         }
+//     }
+//     int j=n-1;
+//     for (int i = 0; i < count; i++)
+//     {
+//         arr[j]=0;
+//         j--;
+//     }
+    
+// }
+// int main(){
+//      int n = 7;
+//     int arr[] = {0, 2, 0, 4, 8, 0, 9};
+//     cout << "Before removing 0 array -" << endl;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+//     cout << "After removing 0 array -" << endl;
+//     solve(arr, n);
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout<<arr[i]<<" ";
+//     }
+
+//  return 0;
+// }
+
+
+
 // // for union of 2 sorted arrays.
 // #include <iostream>
 // #include <bits/stdc++.h>
@@ -234,28 +291,26 @@ int main()
 // {
 //     int n = 6;
 //     int arr1 []=  {1, 2, 2, 3, 4, 5 };
-//     int arr2 []= { 2, 3, 4, 5, 6, 7 };
-//     set<int> set;
-//     for (int i = 0; i < n; i++)
+//     int arr2 []= { 2, 3, 4, 6, 6, 7 };
+//     set<int> sets;
+//     for (auto it:arr1)
 //     {
-//         set.insert(arr1[i]);
+//         sets.insert(it);
 //     }
-//     for (int j = 0; j < n; j++)
+//     for (auto it:arr2)
 //     {
-//         set.insert(arr2[j]);
+//         sets.insert(it);
 //     }
-//     int k = 0;
-//     int unionn[set.size()];
-//     for (auto it : set)
-//     {
-//         unionn[k] = it;
-//         k++;
-//     }
-//     for (int i = 0; i <k; i++)
-//     {
-//         cout<<unionn[i]<<" ";
-//     }
-
+//     // int k = 0;
+//     // int unionn[set.size()];
+//     // for (auto it : set)
+//     // {
+//     //     unionn[k] = it;
+//     //     k++;
+//     // }
+// for(auto it:sets){
+//     cout<<it<<" ";
+// }
 //     return 0;
 // }
 
@@ -328,10 +383,5 @@ int main()
 //     cout << "This is the union array :";
 //     func(n, m, arr1, arr2, arrUnion);
 //     int size = arrUnion.size();
-//     for (int i = 0; i < size; i++)
-//     {
-//         cout << arrUnion[i] << " ";
-//     }
+//     for (int i = 0; i < size; i 
 
-//     return 0;
-// }

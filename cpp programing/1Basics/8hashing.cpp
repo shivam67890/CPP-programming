@@ -7,33 +7,34 @@
 // // 2
 // // 2
 // #include<iostream>
-// #include<bits/stdc++.h>
+// #include<bits/stdc++.h> 
 // using namespace std;
 // int main(){
 //     int n;
 //     cin>>n;
 //     int arr[n];
-//     unordered_map<int ,int> mpp;
+//     // unordered_map<int ,int> mpp;
 //     for(int i=0;i<n;i++){
 //         cin>>arr[i];
-//         mpp[arr[i]]++;// map just update frequency count of the element arr[i] in the unordered map mpp. It keeps track of how many times each element appears in the input array.
+//     //     mpp[arr[i]]++;// map just update frequency count of the element arr[i] in the unordered map mpp.
+//     //     //  It keeps track of how many times each element appears in the input array.
 //     }
-// // // prerequisite
-// //     int hash[13]={0};
-// //     for (int i = 0; i < n; i++){
-// //         hash[arr[i]]++;
-// //     }
+// // prerequisite
+//     int hash[13]={0};
+//     for (int i = 0; i < n; i++){
+//         hash[arr[i]]++;
+//     }
 
-//     for(auto it:mpp){
-//         cout<<it.first<<"->"<<it.second<<endl;
-//     }
-//     // int q;
-//     // cin>>q;
-//     // while(q--){
-//     //     int num;
-//     //     cin>>num;
-//     //     cout<<hash[num]<<endl;
+//     // for(auto it:mpp){
+//     //     cout<<it.first<<"->"<<it.second<<endl;
 //     // }
+//     int q;
+//     cin>>q;
+//     while(q--){
+//         int num;
+//         cin>>num;
+//         cout<<hash[num]<<endl;
+//     }
 //     return 0;
 // }
 
@@ -75,6 +76,8 @@
 //    return 0;
 // }
 
+
+
 // #include<iostream>
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -111,6 +114,7 @@
 //     }
 //     return 0;
 // }
+
 
 // //good question for finding the highest/lowest frequency element
 // #include<iostream>
