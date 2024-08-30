@@ -1,35 +1,22 @@
 
-// higher bound
 #include <bits/stdc++.h>
 using namespace std;
-int binary(int x, vector<int> &arr, int n)
-{
-    int left = 0;
-    int right = arr.size() - 1;
-    int ans = n + 1;
-    while (left <= right)
-    {
-        int mid = (left + right) / 2;
-         if (arr[mid] > x)
-        {
-            ans = mid;
-            right = mid - 1;
-        }
 
-        else
-        {
-            left = mid + 1;
-        }
+int missingK(vector < int > vec, int n, int k) {
+    for (int i = 0; i < n; i++) {
+        if (vec[i] <= k) k++; //shifting k
+        else break;
     }
-    return ans;
+    return k;
 }
+
+
 int main()
 {
-    vector<int> arr = {1, 2, 3, 3, 5, 8, 8, 10, 10, 11};
-    int n = 9;
-    int x = 3;
-    int ans = binary(x, arr, n);
-    cout << "index => " << ans;
+    vector<int> vec = {1,2,3,4};
+    int n = 4, k = 2;
+    int ans = missingK(vec, n, k);
+    cout << "The missing number is: " << ans << "\n";
     return 0;
 }
 
